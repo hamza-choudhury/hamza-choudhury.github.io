@@ -13,12 +13,20 @@
 - **Yield Curve Monitoring**: Treasury yield analysis with recession signalling
 - **Stress Testing Engine**: Portfolio impact simulation for +50bps rate shocks
 - **Volume Anomaly Detection**: Identifies abnormal trading activity
-  
+- **Cross-Asset Correlation**: Detects inter-market liquidity relationships  
+- **Market Regime Identification**: Classifies trending vs. range-bound conditions
+- **Liquidity Shock Propagation**: Tracks illiquidity spread across sectors
+- **Volatility-Adjusted Metrics**: Normalises liquidity by market volatility
+
 ### Machine Learning & AI
-- **ML Predictions**: Random Forest classifier for next-day spread direction forecasting
+- **ML Predictions**: Random Forest classifier for next-day spread direction
 - **Feature Importance Analysis**: Identifies key drivers of liquidity changes
-- **AI Market Intelligence**: Pre-generated execution recommendations based on market conditions
+- **AI Market Intelligence**: Pre-generated execution recommendations
 - **Scenario Analysis**: Six predefined market condition templates
+- **Multi-Model Ensemble**: Combines Random Forest with gradient boosting
+- **Feature Selection Automation**: Recursive elimination for optimal predictors
+- **Model Explainability**: SHAP values for transparent ML decisions
+- **Hyperparameter Optimisation**: Automated tuning for market conditions
 
 ### Technical Implementation
 - **Modular Python Architecture**: Separated data acquisition, calculation, ML, and visualisation
