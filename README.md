@@ -82,5 +82,6 @@
 
 **Live Portfolio:** [hamza-choudhury.github.io](https://hamza-choudhury.github.io)  
 **Source Code:** [github.com/hamza-choudhury/ai-market-liquidity-intelligence-system](https://github.com/hamza-choudhury/ai-market-liquidity-intelligence-system)
+**Source Code:** [https://github.com/hamza-choudhury/macro_market_regime_analysis](https://github.com/hamza-choudhury/macro_market_regime_analysis)
 
 *Educational tool demonstrating financial analytics and Python programming capabilities.*
