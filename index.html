@@ -3,168 +3,368 @@
 <head>
     <title>Hamza Choudhury - Portfolio</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; colour: #333; }
-        .project { background: #f8f9fa; padding: 25px; margin: 30px 0; border-radius: 10px; border-left: 5px solid #2ea44f; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; padding: 12px 20px; margin: 10px 10px 10px 0; text-decoration: none; border-radius: 6px; font-weight: bold; transition: all 0.2s; }
-        .code-btn { background: #24292e; colour: white; }
-        .code-btn:hover { background: #000; }
-        .demo-btn { background: #e67e22; colour: white; }
-        .demo-btn:hover { background: #d35400; }
-        .note-box { background: #fff3cd; border: 1px solid #ffd351; padding: 15px; margin: 20px 0; border-radius: 6px; font-size: 14px; }
-        .features { background: #e8f4f8; padding: 15px; margin: 15px 0; border-radius: 6px; border-left: 4px solid #3498db; }
-        .features ul { margin: 8px 0; padding-left: 20px; }
-        .contact { background: #f1f8ff; padding: 20px; border-radius: 8px; margin-top: 40px; text-align: centre; }
-        .highlight { background: #fffacd; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
-        .badge { display: inline-block; background: #3498db; colour: white; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0; 
+            line-height: 1.6; 
+            color: #2D2F30; 
+            background-color: #F8F9FA;
+        }
+        
+        .header-container {
+            background: linear-gradient(135deg, #2D2F30 0%, #4A5259 100%);
+            color: white;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(45, 47, 48, 0.1);
+        }
+        
+        .main-content {
+            padding: 0 30px 40px;
+        }
+        
+        h1 { 
+            font-size: 36px; 
+            font-weight: 700; 
+            margin: 0 0 10px 0;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #B0B7C1;
+            margin: 0 0 25px 0;
+            font-weight: 400;
+        }
+        
+        .highlight-title {
+            display: inline-block;
+            background: linear-gradient(90deg, #00B8D4, #0066CC);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 0 0 0;
+            box-shadow: 0 2px 8px rgba(0, 104, 204, 0.2);
+        }
+        
+        .project { 
+            background: white; 
+            padding: 30px; 
+            margin: 40px 0; 
+            border-radius: 12px; 
+            border-left: 5px solid #0066CC; 
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .project:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project h3 {
+            font-size: 24px;
+            color: #2D2F30;
+            margin: 0 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #F0F2F5;
+        }
+        
+        .btn { 
+            display: inline-block; 
+            padding: 14px 28px; 
+            margin: 10px 15px 10px 0; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            transition: all 0.2s; 
+            font-size: 15px;
+        }
+        
+        .code-btn { 
+            background: #2D2F30; 
+            color: white; 
+            border: 2px solid #2D2F30;
+        }
+        
+        .code-btn:hover { 
+            background: #000; 
+            border-color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .demo-btn { 
+            background: linear-gradient(135deg, #0066CC 0%, #004D99 100%); 
+            color: white; 
+            border: 2px solid #0066CC;
+        }
+        
+        .demo-btn:hover { 
+            background: linear-gradient(135deg, #0052A3 0%, #003366 100%); 
+            border-color: #0052A3;
+            transform: translateY(-2px);
+        }
+        
+        .note-box { 
+            background: #FFF8E1; 
+            border: 1px solid #FFD54F; 
+            padding: 20px; 
+            margin: 25px 0; 
+            border-radius: 8px; 
+            font-size: 14px; 
+            border-left: 4px solid #FFC107;
+        }
+        
+        .features { 
+            background: #F0F8FF; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px; 
+            border-left: 4px solid #0066CC; 
+        }
+        
+        .features ul { 
+            margin: 8px 0; 
+            padding-left: 20px; 
+        }
+        
+        .features strong {
+            color: #2D2F30;
+            font-size: 15px;
+        }
+        
+        .contact { 
+            background: linear-gradient(135deg, #F0F8FF 0%, #E3F2FD 100%); 
+            padding: 35px; 
+            border-radius: 12px; 
+            margin-top: 50px; 
+            text-align: center;
+            border-top: 5px solid #0066CC;
+        }
+        
+        .contact h2 {
+            color: #2D2F30;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        
+        .highlight { 
+            background: #FFF8E1; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            font-weight: 600; 
+        }
+        
+        .badge { 
+            display: inline-block; 
+            background: #E3F2FD; 
+            color: #0066CC; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            margin: 4px; 
+            font-weight: 600;
+            border: 1px solid #BBDEFB;
+        }
+        
+        h2 {
+            color: #2D2F30;
+            font-size: 28px;
+            margin: 50px 0 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #F0F2F5;
+        }
+        
+        .projects-intro {
+            color: #4A5259;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #00B8D4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .colab-link {
+            font-size: 13px;
+            margin-top: 15px;
+            padding: 12px;
+            background: #F8F9FA;
+            border-radius: 6px;
+            border-left: 3px solid #4CAF50;
+            color: #4A5259;
+        }
+        
+        .colab-link strong {
+            color: #2D2F30;
+        }
     </style>
 </head>
 <body>
-    <h1>Hamza Choudhury</h1>
-    <p><strong>Financial Analytics & Data Science Portfolio</strong></p>
-    
-    <h2>Projects</h2>
-    
-    <!-- PROJECT 1 -->
-    <div class="project">
-        <h3>📊 AI Market Liquidity Intelligence System</h3>
-        
-        <div class="features">
-            <strong>🔧 Complete Feature Set:</strong>
-            <ul>
-                <li><strong>Multi-Asset Analysis</strong>: 60+ assets across 8 categories (Equities, Bonds, Commodities, Forex, Crypto)</li>
-                <li><strong>Date-Flexible Processing</strong>: Any trading date from 2000-present with intelligent validation</li>
-                <li><strong>Liquidity Metrics</strong>: Spread percentages, volume ratios, simulated market depth</li>
-                <li><strong>Data Pipeline</strong>: Automated processing via yFinance API with error handling</li>
-                <li><strong>Machine Learning</strong>: Random Forest classifier for spread direction forecasting</li>
-                <li><strong>Sector Rotation Analysis</strong>: Heatmap rankings of 11 major sector ETFs</li>
-                <li><strong>Yield Curve Monitoring</strong>: Treasury yield analysis with recession signalling</li>
-                <li><strong>Stress Testing Engine</strong>: Portfolio impact simulation for +50bps rate shocks</li>
-                <li><strong>AI Market Intelligence</strong>: Pre-generated execution recommendations based on market conditions</li>
-                <li><strong>Professional Dashboard</strong>: 12-chart institutional visualisation system</li>
-            </ul>
-            
-            <div style="margin-top: 10px;">
-                <span class="badge">Python</span>
-                <span class="badge">Pandas</span>
-                <span class="badge">NumPy</span>
-                <span class="badge">Scikit-learn</span>
-                <span class="badge">Matplotlib</span>
-                <span class="badge">Machine Learning</span>
-                <span class="badge">Financial Analytics</span>
-                <span class="badge">Data Visualisation</span>
-                <span class="badge">yFinance API</span>
-            </div>
-        </div>
-        
-        <div class="note-box">
-            <strong>📅 Live Demo Instructions:</strong>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <li><strong>Custom Date Analysis:</strong> Enter any trading date (YYYY-MM-DD) when prompted</li>
-                <li><strong>How to Use:</strong>
-                    <ol style="margin: 8px 0; padding-left: 20px;">
-                        <li>Click "Runtime" → "Run all" to execute the full analysis pipeline</li>
-                        <li>When prompted, enter your desired analysis date (format: YYYY-MM-DD)</li>
-                        <li>Valid dates: Any trading day from 2000-present</li>
-                        <li>Processing time: ~2 minutes for complete multi-asset analysis</li>
-                    </ol>
-                </li>
-                <li><strong>Analysis Includes:</strong> ML predictions, stress tests, professional dashboards, and AI market insights</li>
-                <li><strong>Note:</strong> Results are saved to your Google Drive for review</li>
-            </ul>
-        </div>
-        
-        <a href="https://github.com/hamza-choudhury/macro_market_regime_analysis" class="btn code-btn">
-            📁 View Complete Source Code
-        </a>
-        <a href="https://colab.research.google.com/drive/1J1-59KYtrWspYn7jfxbNbvP27cILc-l_?usp=sharing" class="btn demo-btn">
-            ▶ Launch Interactive Demo
-        </a>
-
-        <p style="font-size: 12px; margin-top: 10px; color: #666;">
-            <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1J1-59KYtrWspYn7jfxbNbvP27cILc-l_?usp=sharing
-        </p>
+    <div class="header-container">
+        <h1>Hamza Choudhury</h1>
+        <p class="tagline">Financial Analytics & Quantitative Research Portfolio</p>
+        <div class="highlight-title">Front Office Financial Markets • Python • Data Science • Risk Management</div>
     </div>
     
-    <!-- PROJECT 2: MACRO MARKET REGIME ANALYSIS -->
-    <div class="project">
-        <h3>📈 Macro Market Regime Analysis Framework</h3>
-        
-        <div class="features">
-            <strong>🔧 Core Analytics:</strong>
-            <ul>
-                <li><strong>Regime-Specific Performance</strong>: Annualised returns, volatility, and Sharpe ratios across 10 market regimes</li>
-                <li><strong>Multi-Asset Correlation Analysis</strong>: Dynamic correlation matrices showing relationship shifts across environments</li>
-                <li><strong>Risk-Return Profiling</strong>: Visual scatter plots comparing volatility versus returns per asset class</li>
-                <li><strong>Optimal Allocation Modelling</strong>: Historical and risk-adjusted portfolio suggestions per market condition</li>
-                <li><strong>Comparative Regime Analysis</strong>: Side-by-side benchmarking of asset performance (2000-2024)</li>
-            </ul>
-            
-            <strong>🌍 Sector & Market Analysis:</strong>
-            <ul>
-                <li><strong>Five Asset Classes</strong>: US equities, global equities, bonds, gold, and US dollar analysis</li>
-                <li><strong>Ten Historical Regimes</strong>: Dot-com Bubble through Inflation Shock (2000-2024)</li>
-                <li><strong>Crisis vs Growth Analysis</strong>: Performance patterns during stress versus expansion periods</li>
-                <li><strong>Safe Haven Behaviour</strong>: Study of bonds and gold as stabilisers during market declines</li>
-                <li><strong>Recovery Dynamics</strong>: Analysis of leadership rotations during market rebounds</li>
-            </ul>
-            
-            <div style="margin-top: 10px;">
-                <span class="badge">Python</span>
-                <span class="badge">Pandas</span>
-                <span class="badge">NumPy</span>
-                <span class="badge">Plotly</span>
-                <span class="badge">yFinance</span>
-                <span class="badge">Financial Analysis</span>
-                <span class="badge">Data Visualisation</span>
-                <span class="badge">Portfolio Theory</span>
-                <span class="badge">Risk Management</span>
-            </div>
+    <div class="main-content">
+        <div class="projects-intro">
+            <p>This portfolio showcases production-grade financial analytics systems built with Python. Each project demonstrates practical applications of quantitative methods, data science, and machine learning to solve real-world financial market challenges.</p>
+            <p><strong>Focus Areas:</strong> Market Microstructure • Risk Management • Portfolio Construction • Automated Trading Systems • Financial Data Engineering</p>
         </div>
         
-        <div class="note-box">
-            <strong>📊 How to Use This Analysis:</strong>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <li><strong>Interactive Year Analysis</strong>: View detailed dashboards for any market regime year from 2000-2024</li>
-                <li><strong>Two-Part Analysis Structure:</strong>
-                    <ol style="margin: 8px 0; padding-left: 20px;">
-                        <li><strong>Part 1:</strong> Run all cells to see the comprehensive 6-chart regime comparison (2000-2024 overview)</li>
-                        <li><strong>Part 2:</strong> Copy & paste commands to view specific year dashboards (e.g., 2008, 2020, 2022)</li>
-                    </ol>
-                </li>
-                <li><strong>Available Analysis Years:</strong> 2000, 2003, 2007, 2009, 2012, 2015, 2018, 2020, 2022, 2024</li>
-                <li><strong>Dashboard Includes:</strong> Cumulative returns, risk-return profiles, correlation matrices, and optimal allocations</li>
-                <li><strong>Complete Coverage:</strong> 5 asset classes (US stocks, global stocks, bonds, gold, US dollar) across 10 market regimes</li>
-            </ul>
+        <h2>Featured Projects</h2>
+        
+        <!-- PROJECT 1 -->
+        <div class="project">
+            <h3>📊 AI Market Liquidity Intelligence System</h3>
             
-            <div style="margin-top: 15px; padding: 10px; background: #e8f4f8; border-radius: 6px; border-left: 4px solid #3498db;">
-                <strong>💡 Quick Start:</strong>
-                <div style="margin: 8px 0; font-family: 'Courier New', monospace; font-size: 12px; color: #2c3e50;">
-                    # View specific year dashboard (example):<br>
-                    create_year_dashboard(2008).show()<br><br>
-                    # See Sharpe ratio comparison across all regimes:<br>
-                    create_regime_comparison_bar(all_regimes, 'Sharpe Ratio').show()
+            <div class="features">
+                <strong>🔧 Complete Feature Set:</strong>
+                <ul>
+                    <li><strong>Multi-Asset Analysis</strong>: 60+ assets across 8 categories (Equities, Bonds, Commodities, Forex, Crypto)</li>
+                    <li><strong>Date-Flexible Processing</strong>: Any trading date from 2000-present with intelligent validation</li>
+                    <li><strong>Liquidity Metrics</strong>: Spread percentages, volume ratios, simulated market depth</li>
+                    <li><strong>Data Pipeline</strong>: Automated processing via yFinance API with error handling</li>
+                    <li><strong>Machine Learning</strong>: Random Forest classifier for spread direction forecasting</li>
+                    <li><strong>Sector Rotation Analysis</strong>: Heatmap rankings of 11 major sector ETFs</li>
+                    <li><strong>Yield Curve Monitoring</strong>: Treasury yield analysis with recession signalling</li>
+                    <li><strong>Stress Testing Engine</strong>: Portfolio impact simulation for +50bps rate shocks</li>
+                    <li><strong>AI Market Intelligence</strong>: Pre-generated execution recommendations based on market conditions</li>
+                    <li><strong>Professional Dashboard</strong>: 12-chart institutional visualisation system</li>
+                </ul>
+                
+                <div style="margin-top: 15px;">
+                    <span class="badge">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">NumPy</span>
+                    <span class="badge">Scikit-learn</span>
+                    <span class="badge">Matplotlib</span>
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Financial Analytics</span>
+                    <span class="badge">Data Visualisation</span>
+                    <span class="badge">yFinance API</span>
                 </div>
             </div>
+            
+            <div class="note-box">
+                <strong>📅 Live Demo Instructions:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Custom Date Analysis:</strong> Enter any trading date (YYYY-MM-DD) when prompted</li>
+                    <li><strong>How to Use:</strong>
+                        <ol style="margin: 8px 0; padding-left: 20px;">
+                            <li>Click "Runtime" → "Run all" to execute the full analysis pipeline</li>
+                            <li>When prompted, enter your desired analysis date (format: YYYY-MM-DD)</li>
+                            <li>Valid dates: Any trading day from 2000-present</li>
+                            <li>Processing time: ~2 minutes for complete multi-asset analysis</li>
+                        </ol>
+                    </li>
+                    <li><strong>Analysis Includes:</strong> ML predictions, stress tests, professional dashboards, and AI market insights</li>
+                    <li><strong>Note:</strong> Results are saved to your Google Drive for review</li>
+                </ul>
+            </div>
+            
+            <a href="https://github.com/hamza-choudhury/macro_market_regime_analysis" class="btn code-btn">
+                📁 View Complete Source Code
+            </a>
+            <a href="https://colab.research.google.com/drive/1J1-59KYtrWspYn7jfxbNbvP27cILc-l_?usp=sharing" class="btn demo-btn">
+                ▶ Launch Interactive Demo
+            </a>
+
+            <div class="colab-link">
+                <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1J1-59KYtrWspYn7jfxbNbvP27cILc-l_?usp=sharing
+            </div>
         </div>
         
-        <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">
-            📁 View Complete Source Code
-        </a>
-        <a href="https://colab.research.google.com/drive/1r7KvOQZ4R146b4obwvFegaJw99bvqY7e?usp=sharing"" class="btn demo-btn">
-            ▶ Launch Interactive Demo
-        </a>
+        <!-- PROJECT 2: MACRO MARKET REGIME ANALYSIS -->
+        <div class="project">
+            <h3>📈 Macro Market Regime Analysis Framework</h3>
+            
+            <div class="features">
+                <strong>🔧 Core Analytics:</strong>
+                <ul>
+                    <li><strong>Regime-Specific Performance</strong>: Annualised returns, volatility, and Sharpe ratios across 10 market regimes</li>
+                    <li><strong>Multi-Asset Correlation Analysis</strong>: Dynamic correlation matrices showing relationship shifts across environments</li>
+                    <li><strong>Risk-Return Profiling</strong>: Visual scatter plots comparing volatility versus returns per asset class</li>
+                    <li><strong>Optimal Allocation Modelling</strong>: Historical and risk-adjusted portfolio suggestions per market condition</li>
+                    <li><strong>Comparative Regime Analysis</strong>: Side-by-side benchmarking of asset performance (2000-2024)</li>
+                </ul>
+                
+                <strong>🌍 Sector & Market Analysis:</strong>
+                <ul>
+                    <li><strong>Five Asset Classes</strong>: US equities, global equities, bonds, gold, and US dollar analysis</li>
+                    <li><strong>Ten Historical Regimes</strong>: Dot-com Bubble through Inflation Shock (2000-2024)</li>
+                    <li><strong>Crisis vs Growth Analysis</strong>: Performance patterns during stress versus expansion periods</li>
+                    <li><strong>Safe Haven Behaviour</strong>: Study of bonds and gold as stabilisers during market declines</li>
+                    <li><strong>Recovery Dynamics</strong>: Analysis of leadership rotations during market rebounds</li>
+                </ul>
+                
+                <div style="margin-top: 15px;">
+                    <span class="badge">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">NumPy</span>
+                    <span class="badge">Plotly</span>
+                    <span class="badge">yFinance</span>
+                    <span class="badge">Financial Analysis</span>
+                    <span class="badge">Data Visualisation</span>
+                    <span class="badge">Portfolio Theory</span>
+                    <span class="badge">Risk Management</span>
+                </div>
+            </div>
+            
+            <div class="note-box">
+                <strong>📊 How to Use This Analysis:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Interactive Year Analysis</strong>: View detailed dashboards for any market regime year from 2000-2024</li>
+                    <li><strong>Two-Part Analysis Structure:</strong>
+                        <ol style="margin: 8px 0; padding-left: 20px;">
+                            <li><strong>Part 1:</strong> Run all cells to see the comprehensive 6-chart regime comparison (2000-2024 overview)</li>
+                            <li><strong>Part 2:</strong> Copy & paste commands to view specific year dashboards (e.g., 2008, 2020, 2022)</li>
+                        </ol>
+                    </li>
+                    <li><strong>Available Analysis Years:</strong> 2000, 2003, 2007, 2009, 2012, 2015, 2018, 2020, 2022, 2024</li>
+                    <li><strong>Dashboard Includes:</strong> Cumulative returns, risk-return profiles, correlation matrices, and optimal allocations</li>
+                    <li><strong>Complete Coverage:</strong> 5 asset classes (US stocks, global stocks, bonds, gold, US dollar) across 10 market regimes</li>
+                </ul>
+                
+                <div style="margin-top: 15px; padding: 12px; background: #E8F4F8; border-radius: 6px; border-left: 4px solid #0066CC;">
+                    <strong>💡 Quick Start:</strong>
+                    <div style="margin: 8px 0; font-family: 'Courier New', monospace; font-size: 12px; color: #2D2F30;">
+                        # View specific year dashboard (example):<br>
+                        create_year_dashboard(2008).show()<br><br>
+                        # See Sharpe ratio comparison across all regimes:<br>
+                        create_regime_comparison_bar(all_regimes, 'Sharpe Ratio').show()
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">
+                📁 View Complete Source Code
+            </a>
+            <a href="https://colab.research.google.com/drive/1r7KvOQZ4R146b4obwvFegaJw99bvqY7e?usp=sharing" class="btn demo-btn">
+                ▶ Launch Interactive Demo
+            </a>
+            
+            <div class="colab-link">
+                <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1r7KvOQZ4R146b4obwvFegaJw99bvqY7e?usp=sharing
+            </div>
+        </div>
         
-        <p style="font-size: 12px; margin-top: 10px; color: #666;">
-            <strong>Direct Colab Link:</strong> "https://colab.research.google.com/drive/1r7KvOQZ4R146b4obwvFegaJw99bvqY7e?usp=sharing" 
-        </p>
-    </div>
-    
-    <div class="contact">
-        <h2>Contact & Professional Links</h2>
-        <p>
-            <strong>GitHub:</strong> <a href="https://github.com/hamza-choudhury">github.com/hamza-choudhury</a>
-        </p>
-        <p><em>Available for front-office financial markets opportunities</em></p>
+        <div class="contact">
+            <h2>Contact & Professional Links</h2>
+            <p>
+                <strong>GitHub:</strong> <a href="https://github.com/hamza-choudhury" style="color: #0066CC; text-decoration: none; font-weight: 600;">github.com/hamza-choudhury</a>
+            </p>
+            <p style="color: #4A5259; margin-top: 20px; font-style: italic; font-size: 16px;">Available for front-office financial markets opportunities</p>
+        </div>
     </div>
 </body>
 </html>
