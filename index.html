@@ -122,21 +122,29 @@
         </div>
         
         <div class="note-box">
-            <strong>📊 How to Use:</strong>
+            <strong>📊 How to Use This Analysis:</strong>
             <ul style="margin: 10px 0; padding-left: 20px;">
-                <li><strong>Interactive Analysis:</strong> Select any market regime year from 2000-2024 when prompted</li>
-                <li><strong>Setup Instructions:</strong>
+                <li><strong>Interactive Year Analysis</strong>: View detailed dashboards for any market regime year from 2000-2024</li>
+                <li><strong>Two-Part Analysis Structure:</strong>
                     <ol style="margin: 8px 0; padding-left: 20px;">
-                        <li>Click "Runtime" → "Run all" to execute the complete analysis pipeline</li>
-                        <li>When prompted, enter your desired analysis year (e.g., 2008, 2020, 2022)</li>
-                        <li>Available years: 2000-2024 (corresponding to major market regimes)</li>
-                        <li>Processing time: ~90 seconds for full regime analysis</li>
+                        <li><strong>Part 1:</strong> Run all cells to see the comprehensive 6-chart regime comparison (2000-2024 overview)</li>
+                        <li><strong>Part 2:</strong> Copy & paste commands to view specific year dashboards (e.g., 2008, 2020, 2022)</li>
                     </ol>
                 </li>
-                <li><strong>Analysis Output:</strong> Interactive dashboards, correlation matrices, optimal allocations, and performance metrics</li>
-                <li><strong>Educational Value:</strong> Compare how different assets performed in various market environments</li>
-                <li><strong>Note:</strong> All visualisations are interactive - hover over charts for detailed metrics</li>
+                <li><strong>Available Analysis Years:</strong> 2000, 2003, 2007, 2009, 2012, 2015, 2018, 2020, 2022, 2024</li>
+                <li><strong>Dashboard Includes:</strong> Cumulative returns, risk-return profiles, correlation matrices, and optimal allocations</li>
+                <li><strong>Complete Coverage:</strong> 5 asset classes (US stocks, global stocks, bonds, gold, US dollar) across 10 market regimes</li>
             </ul>
+            
+            <div style="margin-top: 15px; padding: 10px; background: #e8f4f8; border-radius: 6px; border-left: 4px solid #3498db;">
+                <strong>💡 Quick Start:</strong>
+                <div style="margin: 8px 0; font-family: 'Courier New', monospace; font-size: 12px; color: #2c3e50;">
+                    # View specific year dashboard (example):<br>
+                    create_year_dashboard(2008).show()<br><br>
+                    # See Sharpe ratio comparison across all regimes:<br>
+                    create_regime_comparison_bar(all_regimes, 'Sharpe Ratio').show()
+                </div>
+            </div>
         </div>
         
         <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">
