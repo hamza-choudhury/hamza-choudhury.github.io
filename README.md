@@ -46,6 +46,38 @@
 5. `ai_enhanced_insights_[DATE].txt` - Detailed AI analysis report
 6. `action_summary_[DATE].txt` - One-page executive summary
 
+# Macro Market Regime Analysis Framework
+
+## Complete Feature Set
+
+### **Core Analytics**
+* **Regime-Specific Performance**: Annualised returns, volatility, and Sharpe ratios for all assets within each historical period
+* **Multi-Asset Correlation Analysis**: Dynamic correlation matrices showing how relationships shift across different market environments
+* **Risk-Return Profiling**: Visual scatter plots comparing volatility versus returns for each asset class per regime
+* **Optimal Allocation Modelling**: Historical and risk-adjusted portfolio suggestions tailored to specific market conditions
+* **Comparative Regime Analysis**: Side-by-side benchmarking of asset performance across different economic environments
+
+### **Sector & Market Analysis**
+* **Five Asset Class Coverage**: US equities, global equities, bonds, gold, and US dollar analysis
+* **Ten Market Regimes**: Examination from Dot-com Bubble (2000) through to Inflation Shock (2022)
+* **Crisis Versus Growth Analysis**: Performance patterns during market stress versus expansion periods
+* **Safe Haven Behaviour**: Study of bonds and gold as stabilisers during equity market declines
+* **Recovery Phase Dynamics**: Analysis of leadership rotations during market rebound periods
+
+### **Technical Implementation**
+* **Python Data Pipeline**: Automated data collection via yfinance API with pandas processing
+* **Interactive Visualisation**: Plotly dashboards with dynamic, publication-quality charts
+* **Modular Analysis Framework**: Separated components for data, analytics, and visualisation layers
+* **Error-Resilient Design**: Synthetic data fallbacks and comprehensive validation checks
+* **Jupyter Integration**: Full compatibility with notebook environments for interactive research
+
+### **Output Files (Per Analysis)**
+* **Interactive Dashboard HTML**: Self-contained web report with all regime visualisations
+* **Performance Metrics CSV**: Complete dataset of returns, volatility, and risk-adjusted metrics
+* **Correlation Matrix Export**: Structured data files showing inter-asset relationships
+* **Optimal Allocation Visualisation**: Chart and data file with suggested portfolio mixes
+* **Summary Report PDF**: Formatted analysis summary with key insights and findings
+
 ---
 
 **Live Portfolio:** [hamza-choudhury.github.io](https://hamza-choudhury.github.io)  
