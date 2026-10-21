@@ -237,7 +237,7 @@
     <div class="main-content">
         <h2>Portfolio Summary</h2>
         <div class="projects-intro">
-            <p>This portfolio demonstrates end-to-end solutions to distinct yet complementary financial market challenges. Developed using a modern, AI-assisted approach that strategically leverages large language models (LLMs) for accelerated development and problem-solving, the projects include: an AI Market Liquidity Intelligence System focusing on historical liquidity analysis for user specified dates, and a Macro Market Regime Analysis Framework providing historical market environment classification and strategic allocation insights. Both leverage Python's data science stack to build professional analytical tools with interactive dashboards, delivering actionable insights for investment decision-making.</p>
+            <p>This portfolio demonstrates end-to-end solutions to distinct yet complementary financial market challenges. Developed using a modern, AI-assisted approach that strategically leverages large language models (LLMs) for accelerated development and problem-solving, the projects include: an AI Market Liquidity Intelligence System focusing on historical liquidity analysis, an ETF Cost Intelligence Engine for competitive product analysis, and a Macro Market Regime Analysis Framework providing historical market environment classification. All leverage Python's data science stack to build professional analytical tools with interactive dashboards, delivering actionable insights for investment decision-making.</p>
             <p><strong>Technical Implementation:</strong> AI Integration • Financial APIs • Machine Learning • NumPy • Pandas • Plotly Dashboards • Python</p>
             <p><strong>Value Delivered:</strong> Actionable Market Intelligence • Automated Analytics Pipelines • Data-Driven Decision Support • Professional-Grade Visualisation • Scalable Research Frameworks</p>
             <p><strong>Data & Methodology Note:</strong> These analyses are for educational and research purposes only. They rely on publicly available financial data sources. Whilst rigorous methodologies have been applied, limitations in data quality, completeness, or API constraints may affect accuracy. Results should be interpreted as illustrative analytical frameworks rather than definitive investment recommendations and do not constitute financial advice.</p>
@@ -245,11 +245,10 @@
         
         <h2>Featured Projects</h2>
         
-        <!-- PROJECT 1 -->
+        <!-- PROJECT 1: AI MARKET LIQUIDITY -->
         <div class="project">
             <h3>📊 AI Market Liquidity Intelligence System</h3>
             
-            <!-- PROJECT INTRO -->
             <div class="project-intro">
                 <strong>Project Overview</strong>
                 A professional analytical platform that evaluates market liquidity conditions for any trading day since 2000. It analyses 60+ assets across equities, bonds, forex, commodities and crypto, calculating spreads, volume ratios and simulated depth, then forecasts spread movements using machine learning and simulates portfolio stress scenarios.
@@ -318,12 +317,77 @@
                 <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing
             </div>
         </div>
+
+        <!-- PROJECT 2: ETF COST INTELLIGENCE ENGINE -->
+        <div class="project">
+            <h3>📈 ETF Cost Intelligence Engine</h3>
+            
+            <div class="project-intro">
+                <strong>Project Overview</strong>
+                A competitive intelligence engine comparing the S&P 500 UCITS ETF across six of Europe's largest providers (BlackRock, State Street, Vanguard, Xtrackers, Amundi, Invesco). It aggregates and ranks ongoing charges, fund scale, holdings count, and replication methods to reveal the true cost of passive investing.
+                
+                <strong>Value Proposition</strong>
+                Delivers actionable product intelligence for ETF sales and capital markets desks. Transforms scattered regulatory data into a unified competitive landscape, highlighting exactly where cost leadership and scale leadership diverge.
+                
+                <strong>Technical Skills</strong>
+                Demonstrates deep ETF product knowledge (share class selection, physical vs synthetic replication) combined with structured data engineering to build a verifiable, self-contained reporting tool.
+            </div>
+            
+            <div class="features">
+                <strong>🔧 Complete Feature Set:</strong>
+                <ul>
+                    <li><strong>Six-Provider Comparison</strong>: Deep-dive analysis of the S&P 500 UCITS ETF across top European issuers</li>
+                    <li><strong>Cost and Scale Metrics</strong>: Extraction and ranking of TER (basis points), AUM, holdings, and SRRI risk indicator</li>
+                    <li><strong>Composite Efficiency Labels</strong>: Identifies the cost leader, scale leader, and balanced funds across the set</li>
+                    <li><strong>Narrative Generation</strong>: Automated interpretation of the central finding (cost leadership vs scale leadership)</li>
+                    <li><strong>Replication Method</strong>: Differentiates between Physical and Synthetic (swap-based) structures</li>
+                    <li><strong>Source Traceability</strong>: Every fund links directly to its webpage, KIID, and factsheet for easy fact-checking</li>
+                    <li><strong>Interactive Dashboard</strong>: Self-contained HTML report with three interactive charts, KPI tiles, and styled tables</li>
+                </ul>
+                
+                <div style="margin-top: 15px;">
+                    <span class="badge">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">Plotly</span>
+                    <span class="badge">HTML/CSS</span>
+                    <span class="badge">ETF Product Knowledge</span>
+                    <span class="badge">Competitive Intelligence</span>
+                    <span class="badge">Data Engineering</span>
+                </div>
+            </div>
+            
+            <div class="note-box">
+                <strong>📊 How to Use This Analysis:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Interactive Year Analysis</strong>: View the complete six-provider comparison dashboard</li>
+                    <li><strong>Two-Part Analysis Structure:</strong>
+                        <ol style="margin: 8px 0; padding-left: 20px;">
+                            <li><strong>Part 1:</strong> Run all cells to see the interactive comparison dashboard</li>
+                            <li><strong>Part 2:</strong> Use the download button at the bottom to save the HTML dashboard for full-screen viewing</li>
+                        </ol>
+                    </li>
+                    <li><strong>Dashboard Includes:</strong> TER bar charts, AUM rankings, TER vs AUM scatter plot, and narrative insights</li>
+                    <li><strong>Complete Coverage:</strong> 6 major ETF providers across physical and synthetic replication methods</li>
+                </ul>
+                <p><strong>⚠️ Access Note:</strong> Google account sign-in is required to access the live demo.</p>
+            </div>
+            
+            <a href="https://github.com/hamza-choudhury/etf-cost-intelligence-engine" class="btn code-btn">
+                📁 View Complete Source Code
+            </a>
+            <a href="https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing" class="btn demo-btn">
+                ▶ Launch Interactive Demo
+            </a>
+            
+            <div class="colab-link">
+                <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing
+            </div>
+        </div>
         
-        <!-- PROJECT 2: MACRO MARKET REGIME ANALYSIS -->
+        <!-- PROJECT 3: MACRO MARKET REGIME ANALYSIS -->
         <div class="project">
             <h3>📈 Macro Market Regime Analysis Framework</h3>
             
-            <!-- PROJECT INTRO -->
             <div class="project-intro">
                 <strong>Project Overview</strong>
                 A historical analysis engine that classifies market environments (2000 to 2024) into 10 distinct regimes, from the dot com bubble to inflation shock, and evaluates how five major asset classes performed in each. It calculates regime specific Sharpe ratios, correlation shifts and optimal tactical allocations.
