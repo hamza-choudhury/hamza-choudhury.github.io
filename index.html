@@ -22,7 +22,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Stops the whole page from scrolling */
+            overflow: hidden;
         }
         
         /* HEADER */
@@ -52,7 +52,6 @@
         /* MAIN APP LAYOUT */
         .app-container {
             display: grid;
-            /* Default: Summary takes up 2 fractions, Right takes 1 */
             grid-template-columns: 2fr 1fr; 
             gap: 20px;
             padding: 20px 40px;
@@ -61,7 +60,6 @@
             transition: grid-template-columns 0.3s ease;
         }
 
-        /* When a project is active, Summary shrinks to 1 fraction, Center gets 1 fraction, Right takes 1 */
         .app-container.project-active {
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -72,26 +70,26 @@
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            overflow-y: auto; /* Allows internal scrolling */
+            overflow-y: auto;
             border-top: 4px solid #00B8D4;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        .left-panel h2 { font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
-        .left-panel p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.7; }
-        .summary-bold { font-weight: 600; color: var(--text-main); display: block; margin-top: 20px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .left-panel h2 { font-size: 22px; margin: 0 0 15px 0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+        .left-panel p { font-size: 14.5px; color: var(--text-muted); margin-top: 0; margin-bottom: 12px; line-height: 1.6; }
+        .summary-bold { font-weight: 600; color: var(--text-main); display: block; margin-top: 12px; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;}
 
         /* CENTER COLUMN (Dynamic Content) */
         .center-panel {
-            display: none; /* Hidden by default */
+            display: none;
             background: white;
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 5px solid var(--primary-blue);
-            overflow-y: auto; /* Allows internal scrolling */
+            overflow-y: auto;
             height: 100%;
             box-sizing: border-box;
         }
@@ -128,14 +126,16 @@
         .note-box { background: #FFF8E1; border: 1px solid #FFD54F; padding: 15px; border-radius: 8px; font-size: 13px; border-left: 4px solid #FFC107; margin-bottom: 20px; }
         .note-box ul { padding-left: 20px; margin: 5px 0; }
         
-        .action-buttons { display: flex; gap: 15px; margin-top: 20px; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 20px; margin-bottom: 15px;}
         .btn { display: inline-block; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: all 0.2s; text-align: center;}
         .code-btn { background: var(--dark-bg); color: white; border: 2px solid var(--dark-bg); }
         .code-btn:hover { background: #000; transform: translateY(-2px); }
         .demo-btn { background: var(--primary-blue); color: white; border: 2px solid var(--primary-blue); }
         .demo-btn:hover { background: #004D99; transform: translateY(-2px); }
 
-        .colab-link { font-size: 11px; margin-top: 15px; padding: 10px; background: #F8F9FA; border-radius: 6px; border-left: 3px solid #4CAF50; color: var(--text-muted); word-break: break-all;}
+        .colab-link { font-size: 12px; padding: 10px; background: #F8F9FA; border-radius: 6px; border-left: 3px solid #4CAF50; color: var(--text-muted); word-break: break-all;}
+        .colab-link a { color: #4CAF50; text-decoration: none; font-weight: 600; }
+        .colab-link a:hover { text-decoration: underline; }
 
         /* RIGHT COLUMN (Navigation & Contact) */
         .right-panel {
@@ -192,7 +192,6 @@
         <div class="highlight-title">Front Office Financial Markets • Python • Data Science</div>
     </div>
     
-    <!-- The container starts with class "app-container" but NO "project-active" class -->
     <div class="app-container" id="main-container">
         
         <!-- LEFT PANEL: SUMMARY -->
@@ -208,10 +207,10 @@
             <p><span class="summary-bold">Technical Implementation:</span> AI Integration • Financial APIs • Machine Learning • NumPy • Pandas • Plotly Dashboards • Python</p>
             <p><span class="summary-bold">Value Delivered:</span> Actionable Market Intelligence • Automated Analytics Pipelines • Data-Driven Decision Support • Professional-Grade Visualisation • Scalable Research Frameworks</p>
             
-            <p style="font-size: 12px; font-style: italic; color: #888;">Data & Methodology Note: These analyses are for educational and research purposes only. They rely on publicly available data. Results do not constitute financial advice.</p>
+            <p style="font-size: 12px; font-style: italic; color: #888; margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">Data & Methodology Note: These analyses are for educational and research purposes only. They rely on publicly available data. Results do not constitute financial advice.</p>
         </div>
 
-        <!-- CENTER PANEL: DYNAMIC CONTENT (Hidden until clicked) -->
+        <!-- CENTER PANEL: DYNAMIC CONTENT -->
         <div class="center-panel" id="center-panel">
             
             <!-- PROJECT 1: LIQUIDITY -->
@@ -265,6 +264,9 @@
                     <a href="https://github.com/hamza-choudhury/ai-market-liquidity-intelligence-system" class="btn code-btn">📁 Source Code</a>
                     <a href="https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
+                <div class="colab-link">
+                    <strong>Direct Colab Link:</strong> <a href="https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing" target="_blank">https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing</a>
+                </div>
             </div>
 
             <!-- PROJECT 2: ETF -->
@@ -315,6 +317,9 @@
                     <a href="https://github.com/hamza-choudhury/etf-cost-intelligence-engine" class="btn code-btn">📁 Source Code</a>
                     <a href="https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
+                <div class="colab-link">
+                    <strong>Direct Colab Link:</strong> <a href="https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing" target="_blank">https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing</a>
+                </div>
             </div>
             
             <!-- PROJECT 3: MACRO -->
@@ -362,6 +367,9 @@
                     <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">📁 Source Code</a>
                     <a href="https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
+                <div class="colab-link">
+                    <strong>Direct Colab Link:</strong> <a href="https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing" target="_blank">https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing</a>
+                </div>
             </div>
 
         </div>
@@ -388,38 +396,22 @@
 
     <script>
         function showProject(projectId, btnElement) {
-            // 1. Add the 'project-active' class to the main container
-            // This shrinks the left panel and shows the center panel
             document.getElementById('main-container').classList.add('project-active');
-
-            // 2. Hide all project contents
             const contents = document.querySelectorAll('.project-content');
             contents.forEach(content => content.style.display = 'none');
-
-            // 3. Show the selected project
             const selectedProject = document.getElementById('project-' + projectId);
             if (selectedProject) {
                 selectedProject.style.display = 'block';
             }
-
-            // 4. Remove "active" class from all buttons
             const buttons = document.querySelectorAll('.project-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-
-            // 5. Add "active" class to the clicked button
             btnElement.classList.add('active');
         }
 
         function closeProject() {
-            // 1. Remove the 'project-active' class
-            // This expands the left panel back to full width and hides the center panel
             document.getElementById('main-container').classList.remove('project-active');
-
-            // 2. Hide all project contents
             const contents = document.querySelectorAll('.project-content');
             contents.forEach(content => content.style.display = 'none');
-
-            // 3. Remove "active" class from all buttons
             const buttons = document.querySelectorAll('.project-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
         }
