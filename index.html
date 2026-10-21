@@ -22,7 +22,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow: hidden; /* Stops the whole page from scrolling */
         }
         
         /* HEADER */
@@ -35,6 +35,7 @@
             align-items: center;
             box-shadow: 0 4px 12px rgba(45, 47, 48, 0.1);
             z-index: 10;
+            flex-shrink: 0;
         }
         
         h1 { font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
@@ -48,64 +49,54 @@
             box-shadow: 0 2px 8px rgba(0, 104, 204, 0.2);
         }
 
-        /* MAIN APP LAYOUT (3 Columns) */
+        /* MAIN APP LAYOUT */
         .app-container {
             display: grid;
-            grid-template-columns: 1fr 1fr 300px;
+            /* Default: Summary takes up 2 fractions, Right takes 1 */
+            grid-template-columns: 2fr 1fr; 
             gap: 20px;
             padding: 20px 40px;
-            height: calc(100vh - 100px);
+            height: calc(100vh - 100px); 
             box-sizing: border-box;
+            transition: grid-template-columns 0.3s ease;
         }
 
-        /* LEFT COLUMN (Portfolio Summary) */
+        /* When a project is active, Summary shrinks to 1 fraction, Center gets 1 fraction, Right takes 1 */
+        .app-container.project-active {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* LEFT COLUMN (Summary) */
         .left-panel {
             background: white;
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            overflow-y: auto;
+            overflow-y: auto; /* Allows internal scrolling */
             border-top: 4px solid #00B8D4;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .left-panel h2 { font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
         .left-panel p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.7; }
         .summary-bold { font-weight: 600; color: var(--text-main); display: block; margin-top: 20px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;}
 
-        /* CENTER COLUMN (Dynamic Content Area) */
+        /* CENTER COLUMN (Dynamic Content) */
         .center-panel {
-            position: relative;
-            height: 100%;
-        }
-
-        .welcome-screen {
-            background: white;
-            border-radius: 12px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            color: #9CA3AF;
-            padding: 40px;
-            box-sizing: border-box;
-        }
-
-        .project-content {
+            display: none; /* Hidden by default */
             background: white;
             border-radius: 12px;
             padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-blue);
+            overflow-y: auto; /* Allows internal scrolling */
             height: 100%;
             box-sizing: border-box;
-            overflow-y: auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            display: none; 
-            border-left: 5px solid var(--primary-blue);
         }
 
-        .project-content.active {
+        .app-container.project-active .center-panel {
             display: block;
             animation: fadeIn 0.3s ease-in-out;
         }
@@ -116,18 +107,11 @@
         }
 
         .project-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;}
-        .project-header h2 { margin: 0; font-size: 22px; color: var(--text-main); }
+        .project-header h2 { margin: 0; font-size: 20px; color: var(--text-main); }
         
         .close-btn {
-            background: #FEE2E2;
-            color: #DC2626;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: inherit;
-            transition: background 0.2s;
+            background: #FEE2E2; color: #DC2626; border: none; padding: 8px 16px;
+            border-radius: 6px; cursor: pointer; font-weight: bold; font-family: inherit;
         }
         .close-btn:hover { background: #FECACA; }
 
@@ -162,32 +146,22 @@
             border-top: 4px solid var(--primary-blue);
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
+            overflow-y: auto; 
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .right-panel h2 { font-size: 18px; margin: 0 0 15px 0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
         
         .project-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            list-style: none; padding: 0; margin: 0 0 30px 0;
+            display: flex; flex-direction: column; gap: 10px;
         }
 
         .project-btn {
-            background: #F0F8FF;
-            border: 1px solid #BBDEFB;
-            color: var(--primary-blue);
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: left;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s;
-            font-family: inherit;
+            background: #F0F8FF; border: 1px solid #BBDEFB; color: var(--primary-blue);
+            padding: 15px; border-radius: 8px; cursor: pointer; text-align: left;
+            font-weight: 600; font-size: 14px; transition: all 0.2s; font-family: inherit;
         }
 
         .project-btn:hover { background: #E3F2FD; transform: translateX(5px); }
@@ -200,19 +174,12 @@
         .contact-list a:hover { text-decoration: underline; }
 
         /* Responsive */
-        @media (max-width: 1200px) {
-            .app-container { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
-            .right-panel { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: flex-start; }
-            .project-nav { flex-direction: row; flex-wrap: wrap; margin-bottom: 0; flex: 1;}
-            .contact-section { margin-top: 0; border-top: none; padding-top: 0; border-left: 2px solid var(--border-color); padding-left: 20px; margin-left: 20px; }
-        }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             body { overflow: auto; height: auto; }
             .app-container { display: flex; flex-direction: column; height: auto; padding: 10px;}
+            .left-panel, .center-panel, .right-panel { height: auto; overflow-y: visible; }
             .header-container { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px;}
-            .center-panel { min-height: 500px; }
-            .right-panel { flex-direction: column; }
-            .contact-section { border-left: none; padding-left: 0; margin-left: 0; border-top: 2px solid var(--border-color); padding-top: 20px; margin-top: 20px; width: 100%;}
+            .contact-section { margin-top: 20px; border-top: 2px solid var(--border-color); padding-top: 20px; }
         }
     </style>
 </head>
@@ -225,10 +192,11 @@
         <div class="highlight-title">Front Office Financial Markets • Python • Data Science</div>
     </div>
     
-    <div class="app-container">
+    <!-- The container starts with class "app-container" but NO "project-active" class -->
+    <div class="app-container" id="main-container">
         
         <!-- LEFT PANEL: SUMMARY -->
-        <div class="left-panel">
+        <div class="left-panel" id="left-panel">
             <h2>Portfolio Summary</h2>
             <p>Welcome to my financial analytics portfolio. These projects represent end to end solutions to distinct, complex financial market challenges, built around the core areas of execution analytics, product intelligence, and strategic asset allocation.</p>
             
@@ -243,19 +211,13 @@
             <p style="font-size: 12px; font-style: italic; color: #888;">Data & Methodology Note: These analyses are for educational and research purposes only. They rely on publicly available data. Results do not constitute financial advice.</p>
         </div>
 
-        <!-- CENTER PANEL: DYNAMIC CONTENT -->
-        <div class="center-panel">
+        <!-- CENTER PANEL: DYNAMIC CONTENT (Hidden until clicked) -->
+        <div class="center-panel" id="center-panel">
             
-            <div class="welcome-screen" id="welcome-screen">
-                <div style="font-size: 50px; margin-bottom: 20px;">👈</div>
-                <h2>Select a project to view details</h2>
-                <p>Click any of the projects on the right to see the overview, feature set, and live demo links.</p>
-            </div>
-
             <!-- PROJECT 1: LIQUIDITY -->
-            <div class="project-content" id="project-liquidity">
+            <div class="project-content" id="project-liquidity" style="display: none;">
                 <div class="project-header">
-                    <h2>📊 AI Market Liquidity Intelligence System</h2>
+                    <h2>📊 AI Market Liquidity System</h2>
                     <button class="close-btn" onclick="closeProject()">✖ Close</button>
                 </div>
                 
@@ -273,45 +235,40 @@
                 <div class="features">
                     <strong>🔧 Complete Feature Set:</strong>
                     <ul>
-                        <li><strong>Multi-Asset Analysis</strong>: 60+ assets across 8 categories (Equities, Bonds, Commodities, Forex, Crypto)</li>
-                        <li><strong>Date-Flexible Processing</strong>: Any trading date from 2000-present with intelligent validation</li>
-                        <li><strong>Liquidity Metrics</strong>: Spread percentages, volume ratios, simulated market depth</li>
-                        <li><strong>Data Pipeline</strong>: Automated processing via yFinance API with error handling</li>
-                        <li><strong>Machine Learning</strong>: Random Forest classifier for spread direction forecasting</li>
-                        <li><strong>Sector Rotation Analysis</strong>: Heatmap rankings of 11 major sector ETFs</li>
-                        <li><strong>Yield Curve Monitoring</strong>: Treasury yield analysis with recession signalling</li>
-                        <li><strong>Stress Testing Engine</strong>: Portfolio impact simulation for +50bps rate shocks</li>
-                        <li><strong>AI Market Intelligence</strong>: Pre-generated execution recommendations based on market conditions</li>
-                        <li><strong>Professional Dashboard</strong>: 14-chart institutional visualisation system</li>
+                        <li><strong>Multi-Asset Analysis</strong>: 60+ assets across 8 categories</li>
+                        <li><strong>Date-Flexible Processing</strong>: Any trading date from 2000-present</li>
+                        <li><strong>Liquidity Metrics</strong>: Spread percentages, volume ratios, simulated depth</li>
+                        <li><strong>Machine Learning</strong>: Random Forest classifier for spread forecasting</li>
+                        <li><strong>Sector Rotation Analysis</strong>: Heatmap rankings of 11 major ETFs</li>
+                        <li><strong>Yield Curve Monitoring</strong>: Treasury yield analysis</li>
+                        <li><strong>Stress Testing Engine</strong>: Portfolio impact simulation</li>
+                        <li><strong>AI Market Intelligence</strong>: Pre-generated execution recommendations</li>
+                        <li><strong>Professional Dashboard</strong>: 14-chart visualisation system</li>
                     </ul>
                     
                     <div style="margin-top: 15px;">
-                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Scikit-learn</span><span class="badge">Matplotlib</span><span class="badge">Machine Learning</span><span class="badge">Financial Analytics</span><span class="badge">yFinance API</span>
+                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Scikit-learn</span><span class="badge">Matplotlib</span><span class="badge">Machine Learning</span>
                     </div>
                 </div>
                 
                 <div class="note-box">
                     <strong>📅 Live Demo Instructions:</strong>
                     <ul>
-                        <li>Click "Runtime" → "Run all" to execute the full analysis pipeline</li>
-                        <li>When prompted, enter your desired analysis date (format: YYYY-MM-DD)</li>
+                        <li>Click "Runtime" → "Run all" to execute the pipeline</li>
+                        <li>Enter your desired analysis date (YYYY-MM-DD)</li>
                         <li>Valid dates: Any trading day from 2000-present</li>
-                        <li>Upon dashboard generation, a download option will appear below the interface</li>
                     </ul>
                     <p><strong>⚠️ Access Note:</strong> Google account sign-in is required.</p>
                 </div>
                 
                 <div class="action-buttons">
-                    <a href="https://github.com/hamza-choudhury/ai-market-liquidity-intelligence-system" class="btn code-btn">📁 View Source Code</a>
-                    <a href="https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing" class="btn demo-btn">▶ Launch Live Demo</a>
-                </div>
-                <div class="colab-link">
-                    <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing
+                    <a href="https://github.com/hamza-choudhury/ai-market-liquidity-intelligence-system" class="btn code-btn">📁 Source Code</a>
+                    <a href="https://colab.research.google.com/drive/1pORHjwuAmxjHv8AQhQj6H1HLTQZeTKLV?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
             </div>
 
             <!-- PROJECT 2: ETF -->
-            <div class="project-content" id="project-etf">
+            <div class="project-content" id="project-etf" style="display: none;">
                 <div class="project-header">
                     <h2>📈 ETF Cost Intelligence Engine</h2>
                     <button class="close-btn" onclick="closeProject()">✖ Close</button>
@@ -322,26 +279,26 @@
                     A competitive intelligence engine comparing the S&P 500 UCITS ETF across six of Europe's largest providers (BlackRock, State Street, Vanguard, Xtrackers, Amundi, Invesco). It aggregates and ranks ongoing charges, fund scale, holdings count, and replication methods to reveal the true cost of passive investing.
                     
                     <strong>Value Proposition</strong>
-                    Delivers actionable product intelligence for ETF sales and capital markets desks. Transforms scattered regulatory data into a unified competitive landscape, highlighting exactly where cost leadership and scale leadership diverge.
+                    Delivers actionable product intelligence for ETF sales and capital markets desks. Transforms scattered regulatory data into a unified competitive landscape.
                     
                     <strong>Technical Skills</strong>
-                    Demonstrates deep ETF product knowledge (share class selection, physical vs synthetic replication) combined with structured data engineering to build a verifiable, self-contained reporting tool.
+                    Demonstrates deep ETF product knowledge (share class selection, physical vs synthetic replication) combined with structured data engineering.
                 </div>
                 
                 <div class="features">
                     <strong>🔧 Complete Feature Set:</strong>
                     <ul>
-                        <li><strong>Six-Provider Comparison</strong>: Deep-dive analysis of the S&P 500 UCITS ETF across top European issuers</li>
-                        <li><strong>Cost and Scale Metrics</strong>: Extraction and ranking of TER (basis points), AUM, holdings, and SRRI risk indicator</li>
-                        <li><strong>Composite Efficiency Labels</strong>: Identifies the cost leader, scale leader, and balanced funds across the set</li>
-                        <li><strong>Narrative Generation</strong>: Automated interpretation of the central finding (cost leadership vs scale leadership)</li>
-                        <li><strong>Replication Method</strong>: Differentiates between Physical and Synthetic (swap-based) structures</li>
-                        <li><strong>Source Traceability</strong>: Every fund links directly to its webpage, KIID, and factsheet for easy fact-checking</li>
-                        <li><strong>Interactive Dashboard</strong>: Self-contained HTML report with three interactive charts, KPI tiles, and styled tables</li>
+                        <li><strong>Six-Provider Comparison</strong>: Deep-dive across top European issuers</li>
+                        <li><strong>Cost and Scale Metrics</strong>: TER, AUM, holdings, and SRRI risk indicator</li>
+                        <li><strong>Composite Efficiency Labels</strong>: Identifies cost leaders and scale leaders</li>
+                        <li><strong>Narrative Generation</strong>: Automated interpretation of the data</li>
+                        <li><strong>Replication Method</strong>: Physical vs Synthetic structures</li>
+                        <li><strong>Source Traceability</strong>: Links to KIIDs and factsheets</li>
+                        <li><strong>Interactive Dashboard</strong>: Self-contained HTML report</li>
                     </ul>
                     
                     <div style="margin-top: 15px;">
-                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">Plotly</span><span class="badge">HTML/CSS</span><span class="badge">ETF Product Knowledge</span><span class="badge">Competitive Intelligence</span><span class="badge">Data Engineering</span>
+                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">Plotly</span><span class="badge">HTML/CSS</span><span class="badge">ETF Knowledge</span>
                     </div>
                 </div>
                 
@@ -349,80 +306,61 @@
                     <strong>📊 How to Use This Analysis:</strong>
                     <ul>
                         <li>Run all cells to see the interactive comparison dashboard</li>
-                        <li>Use the download button at the bottom to save the HTML dashboard for full-screen viewing</li>
-                        <li>Dashboard Includes: TER bar charts, AUM rankings, TER vs AUM scatter plot, and narrative insights</li>
+                        <li>Use the download button to save the HTML dashboard for full-screen viewing</li>
                     </ul>
                     <p><strong>⚠️ Access Note:</strong> Google account sign-in is required.</p>
                 </div>
                 
                 <div class="action-buttons">
-                    <a href="https://github.com/hamza-choudhury/etf-cost-intelligence-engine" class="btn code-btn">📁 View Source Code</a>
-                    <a href="https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing" class="btn demo-btn">▶ Launch Live Demo</a>
-                </div>
-                <div class="colab-link">
-                    <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing
+                    <a href="https://github.com/hamza-choudhury/etf-cost-intelligence-engine" class="btn code-btn">📁 Source Code</a>
+                    <a href="https://colab.research.google.com/drive/1h41kLfBdDfWpe7nAa9e7eBDN-km2iQKH?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
             </div>
             
             <!-- PROJECT 3: MACRO -->
-            <div class="project-content" id="project-macro">
+            <div class="project-content" id="project-macro" style="display: none;">
                 <div class="project-header">
-                    <h2>📉 Macro Market Regime Analysis Framework</h2>
+                    <h2>📉 Macro Market Regime Analysis</h2>
                     <button class="close-btn" onclick="closeProject()">✖ Close</button>
                 </div>
                 
                 <div class="project-intro">
                     <strong>Project Overview</strong>
-                    A historical analysis engine that classifies market environments (2000 to 2024) into 10 distinct regimes, from the dot com bubble to inflation shock, and evaluates how five major asset classes performed in each. It calculates regime specific Sharpe ratios, correlation shifts and optimal tactical allocations.
+                    A historical analysis engine that classifies market environments (2000 to 2024) into 10 distinct regimes, from the dot com bubble to inflation shock, and evaluates how five major asset classes performed in each.
                     
                     <strong>Value Proposition</strong>
                     Provides regime aware asset allocation insights through historical pattern analysis. Transforms complex market cycles into actionable strategic positioning.
                     
                     <strong>Technical Skills</strong>
-                    Showcases advanced quantitative analysis and time series segmentation. Validates expertise in statistical analysis and institutional grade data visualisation.
+                    Showcases advanced quantitative analysis and time series segmentation.
                 </div>
                 
                 <div class="features">
                     <strong>🔧 Core Analytics:</strong>
                     <ul>
-                        <li><strong>Regime-Specific Performance</strong>: Annualised returns, volatility, and Sharpe ratios across 10 market regimes</li>
-                        <li><strong>Multi-Asset Correlation Analysis</strong>: Dynamic correlation matrices showing relationship shifts across environments</li>
-                        <li><strong>Risk-Return Profiling</strong>: Visual scatter plots comparing volatility versus returns per asset class</li>
-                        <li><strong>Optimal Allocation Modelling</strong>: Historical and risk-adjusted portfolio suggestions per market condition</li>
-                        <li><strong>Comparative Regime Analysis</strong>: Side-by-side benchmarking of asset performance (2000-2024)</li>
-                    </ul>
-                    
-                    <strong>🌍 Sector & Market Analysis:</strong>
-                    <ul>
-                        <li><strong>Five Asset Classes</strong>: US equities, global equities, bonds, gold, and US dollar analysis</li>
-                        <li><strong>Ten Historical Regimes</strong>: Dot-com Bubble through Inflation Shock (2000-2024)</li>
-                        <li><strong>Crisis vs Growth Analysis</strong>: Performance patterns during stress versus expansion periods</li>
-                        <li><strong>Safe Haven Behaviour</strong>: Study of bonds and gold as stabilisers during market declines</li>
-                        <li><strong>Recovery Dynamics</strong>: Analysis of leadership rotations during market rebounds</li>
+                        <li><strong>Regime-Specific Performance</strong>: Returns, volatility, and Sharpe ratios</li>
+                        <li><strong>Multi-Asset Correlation</strong>: Dynamic correlation matrices</li>
+                        <li><strong>Risk-Return Profiling</strong>: Visual scatter plots</li>
+                        <li><strong>Optimal Allocation Modelling</strong>: Portfolio suggestions per market condition</li>
                     </ul>
                     
                     <div style="margin-top: 15px;">
-                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Plotly</span><span class="badge">yFinance</span><span class="badge">Financial Analysis</span><span class="badge">Data Visualisation</span><span class="badge">Portfolio Theory</span><span class="badge">Risk Management</span>
+                        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Plotly</span><span class="badge">Portfolio Theory</span>
                     </div>
                 </div>
                 
                 <div class="note-box">
                     <strong>📊 How to Use This Analysis:</strong>
                     <ul>
-                        <li>Run all cells to see the comprehensive 6-chart regime comparison (2000-2024 overview)</li>
-                        <li>Copy & paste commands to view specific year dashboards (e.g., 2008, 2020, 2022)</li>
-                        <li>Available Analysis Years: 2000, 2003, 2007, 2009, 2012, 2015, 2018, 2020, 2022, 2024</li>
-                        <li>Dashboard Includes: Cumulative returns, risk-return profiles, correlation matrices, and optimal allocations</li>
+                        <li>Run all cells to see the comprehensive 6-chart regime comparison</li>
+                        <li>Copy & paste commands to view specific year dashboards (e.g., 2008, 2020)</li>
                     </ul>
                     <p><strong>⚠️ Access Note:</strong> Google account sign-in is required.</p>
                 </div>
                 
                 <div class="action-buttons">
-                    <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">📁 View Source Code</a>
-                    <a href="https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing" class="btn demo-btn">▶ Launch Live Demo</a>
-                </div>
-                <div class="colab-link">
-                    <strong>Direct Colab Link:</strong> https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing
+                    <a href="https://github.com/hamza-choudhury/macro-market-regime-analysis" class="btn code-btn">📁 Source Code</a>
+                    <a href="https://colab.research.google.com/drive/1Wbpp5pLfgWSS5lP27jT8i3OcEg3vpo4-?usp=sharing" class="btn demo-btn">▶ Live Demo</a>
                 </div>
             </div>
 
@@ -442,7 +380,6 @@
                 <ul class="contact-list">
                     <li><strong>Email:</strong><br><a href="mailto:hamza.choudhury@outlook.com">hamza.choudhury@outlook.com</a></li>
                     <li><strong>GitHub:</strong><br><a href="https://github.com/hamza-choudhury" target="_blank">github.com/hamza-choudhury</a></li>
-                    <li><strong>Portfolio:</strong><br><a href="https://hamza-choudhury.github.io" target="_blank">hamza-choudhury.github.io</a></li>
                 </ul>
             </div>
         </div>
@@ -451,17 +388,18 @@
 
     <script>
         function showProject(projectId, btnElement) {
-            // 1. Hide the welcome screen
-            document.getElementById('welcome-screen').style.display = 'none';
+            // 1. Add the 'project-active' class to the main container
+            // This shrinks the left panel and shows the center panel
+            document.getElementById('main-container').classList.add('project-active');
 
             // 2. Hide all project contents
             const contents = document.querySelectorAll('.project-content');
-            contents.forEach(content => content.classList.remove('active'));
+            contents.forEach(content => content.style.display = 'none');
 
             // 3. Show the selected project
             const selectedProject = document.getElementById('project-' + projectId);
             if (selectedProject) {
-                selectedProject.classList.add('active');
+                selectedProject.style.display = 'block';
             }
 
             // 4. Remove "active" class from all buttons
@@ -473,12 +411,13 @@
         }
 
         function closeProject() {
-            // 1. Hide all project contents
-            const contents = document.querySelectorAll('.project-content');
-            contents.forEach(content => content.classList.remove('active'));
+            // 1. Remove the 'project-active' class
+            // This expands the left panel back to full width and hides the center panel
+            document.getElementById('main-container').classList.remove('project-active');
 
-            // 2. Show the welcome screen again
-            document.getElementById('welcome-screen').style.display = 'flex';
+            // 2. Hide all project contents
+            const contents = document.querySelectorAll('.project-content');
+            contents.forEach(content => content.style.display = 'none');
 
             // 3. Remove "active" class from all buttons
             const buttons = document.querySelectorAll('.project-btn');
