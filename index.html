@@ -76,7 +76,6 @@
             border-bottom: 2px solid #F0F2F5;
         }
         
-        /* Project Intro Styling */
         .project-intro {
             margin: 0 0 25px 0;
             line-height: 1.7;
@@ -173,13 +172,6 @@
             font-size: 24px;
         }
         
-        .highlight { 
-            background: #FFF8E1; 
-            padding: 4px 10px; 
-            border-radius: 4px; 
-            font-weight: 600; 
-        }
-        
         .badge { 
             display: inline-block; 
             background: #E3F2FD; 
@@ -200,6 +192,7 @@
             border-bottom: 2px solid #F0F2F5;
         }
         
+        /* STYLES FOR THE NEW SUMMARY */
         .projects-intro {
             color: #4A5259;
             font-size: 17px;
@@ -210,6 +203,47 @@
             border-radius: 8px;
             border-left: 4px solid #00B8D4;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 15px 0 25px 0;
+        }
+
+        .summary-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .summary-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #0066CC;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .summary-list a {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .summary-list a:hover {
+            text-decoration: underline;
+        }
+
+        .summary-note {
+            font-size: 14px;
+            color: #6B7280;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #E5E7EB;
+            font-style: italic;
         }
         
         .colab-link {
@@ -236,17 +270,29 @@
     
     <div class="main-content">
         <h2>Portfolio Summary</h2>
+        
         <div class="projects-intro">
-            <p>This portfolio demonstrates end-to-end solutions to distinct yet complementary financial market challenges. Developed using a modern, AI-assisted approach that strategically leverages large language models (LLMs) for accelerated development and problem-solving, the projects include: an AI Market Liquidity Intelligence System focusing on historical liquidity analysis, an ETF Cost Intelligence Engine for competitive product analysis, and a Macro Market Regime Analysis Framework providing historical market environment classification. All leverage Python's data science stack to build professional analytical tools with interactive dashboards, delivering actionable insights for investment decision-making.</p>
+            <p>This portfolio demonstrates end-to-end solutions to distinct financial market challenges. Built using an AI-assisted approach with Python and financial APIs, these tools prioritise actionable insight and practical utility.</p>
+            
+            <p><strong>Click to jump to a project:</strong></p>
+            <ul class="summary-list">
+                <li><a href="#project-liquidity">AI Market Liquidity Intelligence System</a> &mdash; Historical liquidity and execution environment analysis.</li>
+                <li><a href="#project-etf">ETF Cost Intelligence Engine</a> &mdash; Competitive product and cost comparison across six major European issuers.</li>
+                <li><a href="#project-macro">Macro Market Regime Analysis Framework</a> &mdash; Classifies historical markets to inform strategic asset allocation.</li>
+            </ul>
+
             <p><strong>Technical Implementation:</strong> AI Integration • Financial APIs • Machine Learning • NumPy • Pandas • Plotly Dashboards • Python</p>
             <p><strong>Value Delivered:</strong> Actionable Market Intelligence • Automated Analytics Pipelines • Data-Driven Decision Support • Professional-Grade Visualisation • Scalable Research Frameworks</p>
-            <p><strong>Data & Methodology Note:</strong> These analyses are for educational and research purposes only. They rely on publicly available financial data sources. Whilst rigorous methodologies have been applied, limitations in data quality, completeness, or API constraints may affect accuracy. Results should be interpreted as illustrative analytical frameworks rather than definitive investment recommendations and do not constitute financial advice.</p>
+
+            <div class="summary-note">
+                <strong>Data & Methodology Note:</strong> These analyses are for educational and research purposes only. They rely on publicly available data. Results should be interpreted as illustrative analytical frameworks and do not constitute financial advice.
+            </div>
         </div>
         
         <h2>Featured Projects</h2>
         
         <!-- PROJECT 1: AI MARKET LIQUIDITY -->
-        <div class="project">
+        <div class="project" id="project-liquidity">
             <h3>📊 AI Market Liquidity Intelligence System</h3>
             
             <div class="project-intro">
@@ -319,7 +365,7 @@
         </div>
 
         <!-- PROJECT 2: ETF COST INTELLIGENCE ENGINE -->
-        <div class="project">
+        <div class="project" id="project-etf">
             <h3>📈 ETF Cost Intelligence Engine</h3>
             
             <div class="project-intro">
@@ -385,7 +431,7 @@
         </div>
         
         <!-- PROJECT 3: MACRO MARKET REGIME ANALYSIS -->
-        <div class="project">
+        <div class="project" id="project-macro">
             <h3>📈 Macro Market Regime Analysis Framework</h3>
             
             <div class="project-intro">
